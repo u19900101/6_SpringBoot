@@ -1,2 +1,22 @@
 server:
   port: 8082
+#private String lastName;
+#    private Integer age;
+#    private Boolean boss;
+#    private Date birth;
+#
+#    private Map<String, Object> maps;
+#    private List<Object> lists;
+#    private Dog dog;
+person:
+#  ""   会输出 换行
+  last-name: "李小龙\nkkk 赵丽颖"
+  age: 50
+  boss: false
+  birth: 1901/01/01
+  maps: {k1: ,k2: /nkkk}
+  lists: [1,12]
+  dog:
+#    单引号 写啥就输出啥(进行了转义操作)
+    name: '李小龙\nkkk 赵丽颖'
+    age: 5
