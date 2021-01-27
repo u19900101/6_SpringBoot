@@ -6,6 +6,7 @@ package ppppp.bean;
  */
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -21,7 +22,13 @@ import java.util.Map;
  *
  */
 @Component
+// 加载全局配置中的properties、yml文件
 @ConfigurationProperties(prefix = "person")
+
+// 加载自己写的pro文件
+@PropertySource(value = {"classpath:person.properties"})
+// 这种用不了
+// @PropertySource(value = {"classpath:person.yml"})
 public class Person {
 
     private String lastName;
