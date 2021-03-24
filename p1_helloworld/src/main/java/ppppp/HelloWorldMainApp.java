@@ -3,7 +3,9 @@ package ppppp;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import ppppp.bean.Person;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,5 +27,10 @@ public class HelloWorldMainApp {
         System.out.println(person);
         System.out.println(stringList.contains("person_id"));
 
+        //singleton：单实例的（默认值）：ioc容器启动会调用方法创建对象放到ioc容器中。
+        //以后每次获取就是直接从容器（map.get()）中拿，
+        Person p1 = run.getBean("person_id",Person.class);
+        Person p2 = run.getBean("person_id",Person.class);
+        System.out.println(p1 == p2);// true
     }
 }
