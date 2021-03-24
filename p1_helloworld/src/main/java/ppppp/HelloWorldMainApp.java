@@ -1,5 +1,6 @@
 package ppppp;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -17,6 +18,7 @@ import java.util.List;
 // @SpringBootApplication 来标注一个主程序类，说明这是一个Spring Boot应用
 @SpringBootApplication
 public class HelloWorldMainApp {
+
     public static void main(String[] args) {
 
         // Spring应用启动起来
@@ -44,7 +46,9 @@ public class HelloWorldMainApp {
     //     System.out.println("run.containsBean(\"person\") :" + person);
 
     //    原生配置文件引入
-        boolean xml_person = run.containsBean("xml_person");
-        System.out.println(xml_person);
+    //     boolean xml_person = run.containsBean("xml_person");
+    //     System.out.println(xml_person);
+
+
     }
 }

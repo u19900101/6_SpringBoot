@@ -21,6 +21,8 @@ import org.springframework.stereotype.Component;
 @Data
 @ToString
 @EqualsAndHashCode
+
+
 public class Person {
     private String name;
     private Integer age;

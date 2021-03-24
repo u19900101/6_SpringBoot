@@ -1,0 +1,5 @@
+person:
+  name: "jingjing19 \n memeda"
+#  双引号 会换行输出
+#  单引号 会直接原样输出 \n
+  age: 19

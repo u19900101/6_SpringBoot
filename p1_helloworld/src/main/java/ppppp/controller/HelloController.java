@@ -30,6 +30,7 @@ public class HelloController {
     @RequestMapping("/p")
     public Person p(){
         log.info("请求进来鸟...");
+        System.out.println(person.getName());
         return person;
     }
 }
