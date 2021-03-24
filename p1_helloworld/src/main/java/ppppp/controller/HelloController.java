@@ -1,9 +1,9 @@
 package ppppp.controller;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import ppppp.bean.Person;
 
 /**
  * @author lppppp
@@ -18,6 +18,15 @@ public class HelloController {
     @RequestMapping("/hello")
     public String hello() {
         return "<h1>Hello 静静!</h1>";
+    }
+
+
+    // 配置文件 绑定 bean
+    @Autowired
+    Person person;
+    @RequestMapping("/p")
+    public Person p(){
+        return person;
     }
 }
 

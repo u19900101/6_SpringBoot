@@ -31,7 +31,7 @@ public class MyConfig {
     }
 
     @ConditionalOnBean(name = "kk") //有先后顺序
-    @Bean("person")
+    @Bean("person1")
     public Person person(){
         return new Person("lpppp", 18);
     }
