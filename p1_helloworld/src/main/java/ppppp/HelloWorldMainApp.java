@@ -40,7 +40,11 @@ public class HelloWorldMainApp {
         // System.out.println(person == person2);// true
 
     //    测试条件装配
-        boolean person = run.containsBean("person");
-        System.out.println("run.containsBean(\"person\") :" + person);
+    //     boolean person = run.containsBean("person");
+    //     System.out.println("run.containsBean(\"person\") :" + person);
+
+    //    原生配置文件引入
+        boolean xml_person = run.containsBean("xml_person");
+        System.out.println(xml_person);
     }
 }

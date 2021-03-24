@@ -2,13 +2,8 @@ package ppppp.config;
 
 import ch.qos.logback.classic.db.DBHelper;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Conditional;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.*;
 import ppppp.bean.Person;
-
-import javax.naming.Name;
 
 /**
  * @author lppppp
@@ -26,6 +21,8 @@ import javax.naming.Name;
 
 //  给容器中自动创建出这两个类型的组件、默认组件的名字就是全类名
 @Import({Person.class, DBHelper.class})
+// 原生配置文件引入
+@ImportResource("classpath:bean.xml")
 
 public class MyConfig {
     @Bean("kk")
