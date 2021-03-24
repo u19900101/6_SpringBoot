@@ -20,10 +20,11 @@
         </dependency>
 
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.43</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
+
+
     </dependencies>
 
     <!-- 这个插件，可以将应用打包成一个可执行的jar包；-->

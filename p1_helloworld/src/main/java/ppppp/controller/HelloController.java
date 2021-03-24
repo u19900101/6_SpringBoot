@@ -1,5 +1,6 @@
 package ppppp.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,8 @@ import ppppp.bean.Person;
 /* 所有自动扫面的类要全部放在 主配置类的包下 不然扫不到 */
 // @Controller
 @RestController  // = @Controller + @ResponseBody
+
+@Slf4j
 public class HelloController {
 
     // @ResponseBody
@@ -26,6 +29,7 @@ public class HelloController {
     Person person;
     @RequestMapping("/p")
     public Person p(){
+        log.info("请求进来鸟...");
         return person;
     }
 }
