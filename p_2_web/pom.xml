@@ -9,14 +9,27 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ppppp</groupId>
-    <artifactId>p_3_web</artifactId>
+    <artifactId>p_2_web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>p_3_web</name>
+    <name>p_2_web</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
+
+        <!-- yaml 中提示信息-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!-- 类似热部署 ctrl + F9-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
 
         <!-- webjars  引入 js-->
         <dependency>

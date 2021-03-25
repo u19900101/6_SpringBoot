@@ -1,6 +1,11 @@
 spring:
-  mvc:
-    static-path-pattern: /img/**
+#  mvc:
+#    static-path-pattern: /img/**
   web:
     resources:
       static-locations: classpath:/myimageDir/
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true   #开启页面表单的Rest功能
+
