@@ -1,4 +1,4 @@
-package ppppp.p_3_web_admin;
+package ppppp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
