@@ -2,6 +2,7 @@ package ppppp.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import ppppp.bean.Person;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -76,4 +77,12 @@ public class DemoController {
         map.put("path",path);
         return map;
     }
+
+    @GetMapping("/json")
+    public Person json(){
+       Person p = new Person("jingjing",18);
+
+       return p;
+    }
+
 }
