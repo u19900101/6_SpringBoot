@@ -34,7 +34,7 @@ public class AdminController {
             //回到登录页面
             return "login";
         }*/
-        session.setAttribute("loginUser",user);
+        session.setAttribute("loginUser",new User("kk", "kk"));
         //登录成功重定向到main.html;  重定向防止表单重复提交
         return "redirect:/main.html";
 

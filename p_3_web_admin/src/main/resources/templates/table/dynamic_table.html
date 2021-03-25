@@ -69,7 +69,14 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr class="gradeX" th:each="user: ${users.records}">
+
+                                    <tr class="gradeX" th:each="user,stats: ${users}">
+                                        <td th:text="${stats.count}"></td>
+                                        <td>[[${user.userName}]]</td>
+                                        <td th:text="${user.password}">Win 95+</td>
+                                    </tr>
+
+                                  <!--  <tr class="gradeX" th:each="user: ${users.records}">
                                         <td th:text="${user.id}"></td>
                                         <td>[[${user.name}]]</td>
                                         <td th:text="${user.age}">Win 95+</td>
@@ -77,7 +84,7 @@
                                         <td>
                                             <a th:href="@{/user/delete/{id}(id=${user.id},pn=${users.current})}" class="btn btn-danger btn-sm" type="button">删除</a>
                                         </td>
-                                    </tr>
+                                    </tr>-->
                                     </tfoot>
                                 </table>
 

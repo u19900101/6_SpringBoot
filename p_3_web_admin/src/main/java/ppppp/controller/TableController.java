@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import ppppp.bean.User;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Controller
 public class TableController {
@@ -23,7 +27,14 @@ public class TableController {
 
 
     @GetMapping("/dynamic_table")
-    public String dynamic_table(){
+    public String dynamic_table(Model model){
+        //表格内容的遍历
+//        response.sendError
+    List<User> users = Arrays.asList(new User("zhangsan", "123456"),
+               new User("lisi", "123444"),
+               new User("haha", "aaaaa"),
+               new User("hehe ", "aaddd"));
+       model.addAttribute("users",users);
         return "table/dynamic_table";
     }
 
