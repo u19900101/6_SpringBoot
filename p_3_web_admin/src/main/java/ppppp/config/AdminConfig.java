@@ -28,6 +28,6 @@ public class AdminConfig implements WebMvcConfigurer {
         registry
         .addInterceptor(new LoginInterceptor())
         .addPathPatterns("/**")
-        .excludePathPatterns("/","/login","/css/**","/fonts/**","/js/**","/images/**");
+        .excludePathPatterns("/","/login","/css/**","/fonts/**","/js/**","/images/**","/favicon.ico");
     }
 }
