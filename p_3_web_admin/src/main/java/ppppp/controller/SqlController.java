@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ppppp.bean.Label;
+import ppppp.mapper.LabelMapper;
 
 import javax.sql.DataSource;
 
@@ -21,11 +23,21 @@ public class SqlController {
     @Autowired
     DataSource dataSource;
 
-   @GetMapping("/sql")
+
+    @Autowired
+    LabelMapper labelMapper;
+
+    @GetMapping("/sql")
     public String  slqDemo() {
         Long aLong = jdbcTemplate.queryForObject("select count(*) from t_label", Long.class);
         log.info("测试记录数查询：{}",aLong);
         return "kkkkk";
     }
+
+    @GetMapping("/mybatis")
+    public Label mybatisDemo(Long labelId) {
+        return labelMapper.getLabel(labelId);
+    }
+
 
 }
