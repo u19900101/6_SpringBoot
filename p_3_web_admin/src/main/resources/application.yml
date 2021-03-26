@@ -4,10 +4,32 @@ spring:
     username: root
     password: kk
     driver-class-name: com.mysql.cj.jdbc.Driver
-    filters: stat,wall
-    tomcat:
-      max-active: 10
+#    filters: stat,wall
 
-  druid:
-#    filters: stat,wall,slf4j  #所有开启的功能
+
+    druid:
+      aop-patterns: ppppp.*  #springbean监控
+      filters: stat,wall,slf4j  #所有开启的功能
+
+      stat-view-servlet:  #监控页配置
+        enabled: true
+        login-username: k
+        login-password: k
+        resetEnable: false
+
+      web-stat-filter:  #web监控
+        enabled: true
+        urlPattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+
+
+      filter:
+        stat: #sql监控
+          slow-sql-millis: 1000
+          logSlowSql: true
+          enabled: true
+        wall: #防火墙
+          enabled: true
+          config:
+            drop-table-allow: false
 
