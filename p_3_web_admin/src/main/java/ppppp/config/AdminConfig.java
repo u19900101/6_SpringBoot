@@ -5,10 +5,12 @@ package ppppp.config;
  * @create 2021-03-25 20:23
  */
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import ppppp.interceptor.LoginInterceptor;
+import ppppp.interceptor.RedisUrlCountInterceptor;
 
 /**
  * 1、编写一个拦截器实现HandlerInterceptor接口
@@ -23,11 +25,19 @@ import ppppp.interceptor.LoginInterceptor;
 
 public class AdminConfig implements WebMvcConfigurer {
 
+    @Autowired
+    RedisUrlCountInterceptor redisUrlCountInterceptor;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry
         .addInterceptor(new LoginInterceptor())
         .addPathPatterns("/**")
         .excludePathPatterns("/","/sql","/login","/css/**","/fonts/**","/js/**","/images/**","/favicon.ico");
+
+       registry.addInterceptor(redisUrlCountInterceptor)
+       .addPathPatterns("/**")
+       .excludePathPatterns("/","/login","/css/**","/fonts/**","/images/**",
+               "/js/**","/aa/**");
     }
 }

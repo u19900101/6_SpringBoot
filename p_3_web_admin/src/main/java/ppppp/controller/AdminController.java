@@ -1,6 +1,9 @@
 package ppppp.controller;
 
 import com.sun.org.apache.xpath.internal.operations.Mod;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -39,11 +42,23 @@ public class AdminController {
         return "redirect:/main.html";
 
     }
-
+    @Autowired
+    StringRedisTemplate redisTemplate;
     // 防止 login post表单的重复提交
     @GetMapping("/main.html")
     public String toMain(Model model,HttpSession session){
         Object loginUser = session.getAttribute("loginUser");
+
+       ValueOperations<String, String> opsForValue =
+       redisTemplate.opsForValue();
+
+       String s = opsForValue.get("/main.html");
+       String s1 = opsForValue.get("/sql");
+
+
+       model.addAttribute("mainCount",s);
+       model.addAttribute("sqlCount",s1);
+
        if(loginUser != null){
            return "main";
        }else {
@@ -51,5 +66,7 @@ public class AdminController {
            model.addAttribute("msg","请重新登录");
            return "login";
        }
+
+
     }
 }
