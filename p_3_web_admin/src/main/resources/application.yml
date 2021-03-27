@@ -32,7 +32,19 @@ spring:
           enabled: true
           config:
             drop-table-allow: false
-
+  redis:
+    host: r-bp13hft23vxinsjp1zpd.redis.rds.aliyuncs.com
+    port: 6379
+    password: kk:Root123456
+#    client-type: lettuce
+#    lettuce:
+#      pool:
+#        max-active: 10
+#        min-idle: 5
+    client-type: jedis
+#    jedis:
+#      pool:
+#        max-active: 10
 # 配置mybatis规则、使用MyBatisPlus则此项配置无效
 mybatis:
 #  config-location: classpath:mybatis/mybatis-config.xml
