@@ -1,6 +1,7 @@
 package ppppp.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Service;
 import ppppp.bean.Label;
@@ -10,11 +11,14 @@ import ppppp.bean.Label;
  * @create 2021-03-26 22:51
  */
 @Service
-@Mapper
+// @Mapper
 public interface LabelMapper {
     public Label getLabel(Long labelId);
 
     // mapper 纯注解开发
     @Select("select * from t_label where labelId = #{labelId}")
     public Label getLabelByAnno(Long labelId);
+
+    // 获取 自增主键
+    // @Options(useGeneratedKeys = true,keyProperty = "id")
 }

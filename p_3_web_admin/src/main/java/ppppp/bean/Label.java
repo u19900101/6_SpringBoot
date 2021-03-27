@@ -1,10 +1,17 @@
 package ppppp.bean;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 @Data
+@TableName("t_label")
+
 public class Label {
-    private Integer labelid;
+    @TableId("labelId")
+    @TableField("labelId")
+    private Integer labelId;
 
     private String labelName;
 

@@ -62,46 +62,45 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>name</th>
-                                        <th>age</th>
-                                        <th>email</th>
-                                        <th>操作</th>
+                                        <th>labelid</th>
+                                        <th>labelName</th>
+                                        <th>tags</th>
+                                        <th>href</th>
                                     </tr>
                                     </thead>
                                     <tbody>
 
-                                    <tr class="gradeX" th:each="user,stats: ${users}">
+                                    <tr class="gradeX" th:each="label,stats: ${labels.records}">
                                         <td th:text="${stats.count}"></td>
-                                        <td>[[${user.userName}]]</td>
-                                        <td th:text="${user.password}">Win 95+</td>
+                                        <td th:text="${label.labelId}"></td>
+                                        <td th:text="${label.labelName}">Win 95+</td>
+                                        <td th:text="${label.tags}">Win 95+</td>
+                                        <td th:text="${label.href}">4</td>
                                     </tr>
 
-                                  <!--  <tr class="gradeX" th:each="user: ${users.records}">
-                                        <td th:text="${user.id}"></td>
-                                        <td>[[${user.name}]]</td>
-                                        <td th:text="${user.age}">Win 95+</td>
-                                        <td th:text="${user.email}">4</td>
-                                        <td>
-                                            <a th:href="@{/user/delete/{id}(id=${user.id},pn=${users.current})}" class="btn btn-danger btn-sm" type="button">删除</a>
-                                        </td>
-                                    </tr>-->
                                     </tfoot>
                                 </table>
 
                                 <div class="row-fluid">
                                     <div class="span6">
                                         <div class="dataTables_info" id="dynamic-table_info">
-                                            当前第[[${users.current}]]页  总计 [[${users.pages}]]页  共[[${users.total}]]条记录
+                                            当前第[[${labels.current}]]页  总计 [[${labels.pages}]]页  共[[${labels.total}]]条记录
                                         </div>
                                     </div>
                                     <div class="span6">
                                         <div class="dataTables_paginate paging_bootstrap pagination">
                                             <ul>
-                                                <li class="prev disabled"><a href="#">← 前一页</a></li>
-                                                <li th:class="${num == users.current?'active':''}" th:each="num:${#numbers.sequence(1,users.pages)}" >
+                                                <li th:class="${labels.current == 1?'prev disabled':''}"><a th:href="@{/dynamic_table(pn=1)}">首  页</a></li>
+                                                <li th:class="${labels.current == 1?'prev disabled':''}" ><a th:href="@{/dynamic_table(pn=${labels.current}-1)}">← 前一页</a></li>
+
+
+                                                <li th:class="${num == labels.current?'active':''}"
+                                                    th:each="num:${#numbers.sequence(1,labels.pages)}" >
                                                     <a th:href="@{/dynamic_table(pn=${num})}">[[${num}]]</a>
                                                 </li>
-                                                <li class="next disabled"><a href="#">下一页 → </a></li>
+
+                                                <li th:class="${labels.current == labels.pages?'next disabled':''}"><a th:href="@{/dynamic_table(pn=${labels.current}+1)}">下一页 → </a></li>
+                                                <li th:class="${labels.current == labels.pages?'next disabled':''}"><a th:href="@{/dynamic_table(pn=${labels.pages})}">尾  页</a></li>
                                             </ul>
                                         </div>
                                     </div>
