@@ -40,4 +40,10 @@ public class SqlController {
     }
 
 
+    @GetMapping("/mAnno")
+    public Label mybatisAnno(Long labelId) {
+        return labelMapper.getLabelByAnno(labelId);
+    }
+
+
 }
