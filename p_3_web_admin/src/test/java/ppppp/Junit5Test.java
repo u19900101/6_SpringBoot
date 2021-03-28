@@ -1,11 +1,14 @@
 package ppppp;
 
 import org.junit.jupiter.api.*;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Repeat;
 
 /**
  * @author lppppp
  * @create 2021-03-28 8:46
  */
+// @SpringBootTest
 @DisplayName("测试 class")
 public class Junit5Test {
 
@@ -15,7 +18,9 @@ public class Junit5Test {
     public void T(){
         System.out.println("么么哒1...");
     }
+
     @DisplayName("测试方法2")
+    @RepeatedTest(5)
     @Test
     public void T2(){
         System.out.println("么么哒2...");
