@@ -14,8 +14,8 @@ public class AppInfoInfoContributor implements InfoContributor {
     @Override
     public void contribute(Info.Builder builder) {
 
-        builder.withDetail("msg","你好")
-                .withDetail("hello","atguigu")
+        builder.withDetail("中文测试 定义的信息","你好")
+                .withDetail("InfoContributor类","mmmmm")
                 .withDetails(Collections.singletonMap("world","666600"));
     }
 }
