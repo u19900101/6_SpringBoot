@@ -5,8 +5,6 @@ spring:
     password: kk
     driver-class-name: com.mysql.cj.jdbc.Driver
 #    filters: stat,wall
-
-
     druid:
       aop-patterns: ppppp.*  #springbean监控
       filters: stat,wall,slf4j  #所有开启的功能
@@ -46,6 +44,7 @@ spring:
 #      pool:
 #        max-active: 10
 # 配置mybatis规则、使用MyBatisPlus则此项配置无效
+
 mybatis:
 #  config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mapper/*.xml
@@ -55,32 +54,37 @@ mybatis:
 
 # management 是所有actuator的配置
 # management.endpoint.端点名.xxxx  对某个端点的具体配置
-management:
-  endpoints:
-    enabled-by-default: false  #默认开启所有监控端点  true
-    web:
-      exposure:
-        include: '*' # 以web方式暴露所有端点
+#management:
+#  endpoints:
+#    enabled-by-default: true  #默认开启所有监控端点  true
+#    web:
+#      exposure:
+#        include: '*' # 以web方式暴露所有端点
+#
+#  endpoint:   #对某个端点的具体配置
+#    health:
+#      show-details: always
+#      enabled: true
+#
+#    info:
+#      enabled: true
+#
+#    beans:
+#      enabled: true
+#
+#    metrics:
+#      enabled: true
 
-  endpoint:   #对某个端点的具体配置
-    health:
-      show-details: always
-      enabled: true
+## 在监控页自定义显示 info信息
+#info:
+#  appName: boot-admin
+#  appVersion: 1.0.0
+#  mavenProjectName: @project.artifactId@
+#  mavenProjectVersion: @project.version@
+#  notSupportChineseTest: @project.modelVersion@
 
-    info:
-      enabled: true
 
-    beans:
-      enabled: true
 
-    metrics:
-      enabled: true
-# 在监控页自定义显示 info信息
-info:
-  appName: boot-admin
-  appVersion: 1.0.0
-  mavenProjectName: @project.artifactId@
-  mavenProjectVersion: @project.version@
-  notSupportChineseTest: @project.modelVersion@
+
 #
 

@@ -11,10 +11,10 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 @MapperScan("ppppp.mapper")
 @SpringBootApplication(exclude = RedisAutoConfiguration.class)
 
-public class P3WebAdminApplication {
+public class P3_WebAdmin{
 
     public static void main(String[] args) {
-        SpringApplication.run(P3WebAdminApplication.class, args);
+        SpringApplication.run(P3_WebAdmin.class, args);
     }
 
 }
