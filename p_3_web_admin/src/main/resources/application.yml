@@ -32,10 +32,10 @@ spring:
           enabled: true
           config:
             drop-table-allow: false
-  redis:
-    host: r-bp13hft23vxinsjp1zpd.redis.rds.aliyuncs.com
-    port: 6379
-    password: kk:Root123456
+#  redis:
+#    host: r-bp13hft23vxinsjp1zpd.redis.rds.aliyuncs.com
+#    port: 6379
+#    password: kk:Root123456
 #    client-type: lettuce
 #    lettuce:
 #      pool:
@@ -51,4 +51,35 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
   configuration:  # 指定mybatis全局配置文件中的相关配置项
     map-underscore-to-camel-case: true
+
+
+# management 是所有actuator的配置
+# management.endpoint.端点名.xxxx  对某个端点的具体配置
+management:
+  endpoints:
+    enabled-by-default: false  #默认开启所有监控端点  true
+    web:
+      exposure:
+        include: '*' # 以web方式暴露所有端点
+
+  endpoint:   #对某个端点的具体配置
+    health:
+      show-details: always
+      enabled: true
+
+    info:
+      enabled: true
+
+    beans:
+      enabled: true
+
+    metrics:
+      enabled: true
+#
+#info:
+#  appName: boot-admin
+#  appVersion: 1.0.0
+#  mavenProjectName: @project.artifactId@
+#  mavenProjectVersion: @project.version@
+#
 

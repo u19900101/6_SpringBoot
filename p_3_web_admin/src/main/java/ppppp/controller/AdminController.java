@@ -4,6 +4,7 @@ import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -19,7 +20,8 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 public class AdminController {
-
+    // @Autowired
+    StringRedisTemplate redisTemplate;
     @GetMapping(value = {"/","/login"})
     public String index(){
         return "login";
@@ -42,14 +44,13 @@ public class AdminController {
         return "redirect:/main.html";
 
     }
-    @Autowired
-    StringRedisTemplate redisTemplate;
+
     // 防止 login post表单的重复提交
     @GetMapping("/main.html")
     public String toMain(Model model,HttpSession session){
        Object loginUser = session.getAttribute("loginUser");
 
-       ValueOperations<String, String> opsForValue =
+      /* ValueOperations<String, String> opsForValue =
        redisTemplate.opsForValue();
 
        String s = opsForValue.get("/main.html");
@@ -57,7 +58,7 @@ public class AdminController {
 
 
        model.addAttribute("mainCount",s);
-       model.addAttribute("sqlCount",s1);
+       model.addAttribute("sqlCount",s1);*/
 
        if(loginUser != null){
            return "main";

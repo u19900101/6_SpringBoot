@@ -25,7 +25,7 @@ import ppppp.interceptor.RedisUrlCountInterceptor;
 
 public class AdminConfig implements WebMvcConfigurer {
 
-    @Autowired
+    // @Autowired
     RedisUrlCountInterceptor redisUrlCountInterceptor;
 
     @Override
@@ -33,11 +33,14 @@ public class AdminConfig implements WebMvcConfigurer {
         registry
         .addInterceptor(new LoginInterceptor())
         .addPathPatterns("/**")
-        .excludePathPatterns("/","/sql","/login","/css/**","/fonts/**","/js/**","/images/**","/favicon.ico");
+        .excludePathPatterns("/","/sql","/login",
+                "/css/**","/fonts/**","/js/**",
+                "/images/**","/favicon.ico",
+                "/actuator/**");
 
-       registry.addInterceptor(redisUrlCountInterceptor)
+     /*  registry.addInterceptor(redisUrlCountInterceptor)
        .addPathPatterns("/**")
        .excludePathPatterns("/","/login","/css/**","/fonts/**","/images/**",
-               "/js/**","/aa/**");
+               "/js/**","/aa/**");*/
     }
 }
