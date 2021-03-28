@@ -47,7 +47,7 @@ public class AdminController {
     // 防止 login post表单的重复提交
     @GetMapping("/main.html")
     public String toMain(Model model,HttpSession session){
-        Object loginUser = session.getAttribute("loginUser");
+       Object loginUser = session.getAttribute("loginUser");
 
        ValueOperations<String, String> opsForValue =
        redisTemplate.opsForValue();

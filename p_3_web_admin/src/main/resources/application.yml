@@ -41,7 +41,7 @@ spring:
 #      pool:
 #        max-active: 10
 #        min-idle: 5
-    client-type: jedis
+#    client-type: jedis
 #    jedis:
 #      pool:
 #        max-active: 10
